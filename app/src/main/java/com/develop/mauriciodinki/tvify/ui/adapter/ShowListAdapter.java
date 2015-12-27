@@ -11,8 +11,10 @@ import android.widget.TextView;
 
 import com.develop.mauriciodinki.tvify.R;
 import com.develop.mauriciodinki.tvify.domain.Show;
+import com.develop.mauriciodinki.tvify.io.model.ShowsResponse;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -48,11 +50,11 @@ public class ShowListAdapter extends RecyclerView.Adapter<ShowListAdapter.ShowLi
         return shows.size();
     }
 
-    public void addAll(@NonNull ArrayList<Show> shows){
+    public void addAll(@NonNull ShowsResponse shows){
         if (shows == null)
             throw  new NullPointerException("The items cannot be null");
 
-        this.shows.addAll(shows);
+        this.shows.addAll((Collection<? extends Show>) shows);
         notifyDataSetChanged();
     }
 

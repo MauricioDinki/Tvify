@@ -2,6 +2,7 @@ package com.develop.mauriciodinki.tvify.io;
 
 import com.develop.mauriciodinki.tvify.io.model.ShowsResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Callback;
@@ -13,5 +14,5 @@ import retrofit.http.GET;
 public interface TvMazeApiService {
 
     @GET("/shows")
-    void getShows(Callback <ShowsResponse> serverResponse);
+    void getShows(Callback <ArrayList<ShowsResponse>> serverResponse);
 }
