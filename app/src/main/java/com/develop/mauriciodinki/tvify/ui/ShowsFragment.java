@@ -24,7 +24,7 @@ import retrofit.client.Response;
 /**
  * Created by mauriciodinki on 23/12/15.
  */
-public class ShowsFragment extends Fragment implements Callback<ShowsResponse> {
+public class ShowsFragment extends Fragment implements Callback<ArrayList<ShowsResponse>> {
 
     public static final int NUM_COLUMNS = 2;
     private RecyclerView mShowList;
@@ -61,10 +61,10 @@ public class ShowsFragment extends Fragment implements Callback<ShowsResponse> {
         mShowList.addItemDecoration(new ItemOffsetDecoration(getActivity(), R.integer.offset));
     }
 
-
     @Override
-    public void success(ShowsResponse showsResponse, Response response) {
-        adapter.addAll(showsResponse.getShows());
+    public void success(ArrayList<ShowsResponse> showsResponses, Response response) {
+        for (int i = 0; i <= showsResponses.size()-1; i++)
+            adapter.addAll(showsResponses.get(i));
     }
 
     @Override
